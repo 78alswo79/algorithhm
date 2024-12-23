@@ -1,5 +1,6 @@
 package algorithm;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayPracticeAlgorithm {
@@ -87,6 +88,22 @@ public class ArrayPracticeAlgorithm {
 		 }
 		 System.out.println("최대값은 ????" + max);
 	 }
+	 
+	 private static void any_reverse() {
+
+		 int a[] = {5,10,73,2,-5,42};
+		 int temp = 0;
+		 
+		 System.out.println(Arrays.toString(a));
+		 for (int i = 0; i < a.length / 2; i++) {
+			 temp = a[i];
+			 a[i] = a[a.length - i - 1];
+			 a[a.length - i - 1] = temp;
+			 System.out.println("a["+ i +"]과 a[" + (a.length - i - 1) +"]를 교환힙니다.");
+			 System.out.println(Arrays.toString(a));
+		 }
+		 System.out.println("역순 정렬을 종료합니다.");
+	 }
 
 	public static void main(String[] args) {
 		// 최솟값 구하기
@@ -97,8 +114,8 @@ public class ArrayPracticeAlgorithm {
 		aveof();
 		// 사람 수 5 ~ 21미만의 난수로 가장 큰 키 구하기
 		highTall();
-		// TODO any_reverse()작성하기
-
+		// any_reverse()작성하기
+		any_reverse();
 	}
 	 
 
