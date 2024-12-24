@@ -1,6 +1,8 @@
 package algorithm;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class ArrayPracticeAlgorithm {
@@ -104,6 +106,39 @@ public class ArrayPracticeAlgorithm {
 		 }
 		 System.out.println("역순 정렬을 종료합니다.");
 	 }
+	 
+	 private static void gisooChange() {
+		 int inputNumber = 144;
+		 int change = 2;
+		 
+		 boolean loofFlag = false;
+		 int rest, share = 0;
+		 List<Integer> intList = new ArrayList<>();
+		 
+		 do {
+			 rest = inputNumber % change;
+			 intList.add(rest);
+			if (inputNumber / change != 0) {
+				loofFlag = true;
+				inputNumber = inputNumber / change;
+			} else {
+				loofFlag = false;
+			}
+		} while (loofFlag);
+		 
+		 // List to cast array[]
+		 int[] intArray = intList.stream().mapToInt(value -> value).toArray();
+		 System.out.println("역순 정렬 전 배열값" + Arrays.toString(intArray));
+		 
+		 int temp = 0;
+		 for (int i = 0; i < intArray.length / 2; i++) {
+			 temp = intArray[i];
+			 intArray[i] = intArray[intArray.length - i - 1];
+			 intArray[intArray.length - i - 1] = temp;
+		 }
+		 System.out.println("역순 정렬 후 배열값" + Arrays.toString(intArray));
+		 
+	 }
 
 	public static void main(String[] args) {
 		// 최솟값 구하기
@@ -116,6 +151,8 @@ public class ArrayPracticeAlgorithm {
 		highTall();
 		// any_reverse()작성하기
 		any_reverse();
+		// 79Page Q6.기수 변환 과정출력.
+		gisooChange();
 	}
 	 
 
